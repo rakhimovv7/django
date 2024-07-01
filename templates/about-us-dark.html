@@ -421,87 +421,39 @@
             <div class="row">
                 <div class="col-lg-8 offset-lg-2">
                     <div class="site-heading text-center">
-                        <h4 class="sub-title">MASTER CHEFS</h4>
-                        <h2 class="title">Meet Our Special Chefs</h2>
+                        <h4 class="sub-title">Лучшие повара</h4>
+                        <h2 class="title">Познакомьтесь с нашими поварами</h2>
                     </div>
                 </div>
             </div>
 
             <div class="row">
                 <!-- Single Item -->
+                {% for chefs in chef %}
                 <div class="col-xl-4 col-lg-6">
                     <div class="chef-style-one">
                         <div class="chef-thumb">
-                            <img src="{% static 'assets/img/team/1.jpg' %}" alt="Image Not Found">
+                            <img src="{{chefs.photo.url}}"width="300px" height="300px"     alt="Image Not Found">
                             <div class="info">
-                                <h4><a href="#">Alexander Petllo</a></h4>
-                                <span>Assistant Chef</span>
+                                <h4><a href="#">{{chefs.name}}</a></h4>
+                                <span>{{chefs.type}}</span>
                             </div>
                             <ul class="social">
                                 <li>
-                                    <a href="#">
+                                    <a href="{{chefs.youtube}}">
                                         <i class="fab fa-facebook-f"></i>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a href="{{chefs.facebook}}">
                                         <i class="fab fa-youtube"></i>
                                     </a>
                                 </li>
                             </ul>
                         </div>
                     </div>
-                </div>
-                <!-- End Single Item -->
-                <!-- Single Item -->
-                <div class="col-xl-4 col-lg-6">
-                    <div class="chef-style-one">
-                        <div class="chef-thumb">
-                            <img src="{% static 'assets/img/team/2.jpg' %}" alt="Image Not Found">
-                            <div class="info">
-                                <h4><a href="#">Mendia Juxef</a></h4>
-                                <span>Burger King</span>
-                            </div>
-                            <ul class="social">
-                                <li>
-                                    <a href="#">
-                                        <i class="fab fa-facebook-f"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="fab fa-youtube"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Single Item -->
-                <!-- Single Item -->
-                <div class="col-xl-4 col-lg-6">
-                    <div class="chef-style-one">
-                        <div class="chef-thumb">
-                            <img src="{% static 'assets/img/team/3.jpg' %}" alt="Image Not Found">
-                            <div class="info">
-                                <h4><a href="#">Petro William</a></h4>
-                                <span>Main Chef</span>
-                            </div>
-                            <ul class="social">
-                                <li>
-                                    <a href="#">
-                                        <i class="fab fa-facebook-f"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="fab fa-youtube"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                </div>  
+                {%endfor%}
                 <!-- End Single Item -->
             </div>
         </div>
