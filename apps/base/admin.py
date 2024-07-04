@@ -1,5 +1,5 @@
 from django.contrib import admin
-from apps.base.models import Base, Popular_category, Our_chef,News
+from apps.base.models import Base,Popular_category,Our_chef,News
 # Register your models here.
 
 admin.site.register(Base)

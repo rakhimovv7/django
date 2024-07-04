@@ -29,6 +29,10 @@ class Base(models.Model):
         verbose_name="instagram",
         blank=True, null=True        
     )
+    location = models.CharField(
+        max_length=255, 
+        verbose_name="Адрес"
+    )
     
     def __str__(self) -> str:
         return self.title
@@ -44,19 +48,18 @@ class Popular_category(models.Model):
     )
     description = models.CharField(
         max_length=255,
-        verbose_name="Описания блюда"
+        verbose_name="Описание блюда"
     )
     photo = models.ImageField(
-        upload_to="popular_category",
-        verbose_name="Фото блюда"
+        upload_to= "popular_category/",
+        verbose_name="фото блюда"
     )
-
-    def __str__(self) -> str:
+    def __str__(self):
         return self.title
-    
     class Meta:
         verbose_name = "Популярная категория"
         verbose_name_plural = "Популярные категории"
+
 
 
 class Our_chef(models.Model):
@@ -71,10 +74,9 @@ class Our_chef(models.Model):
     photo = models.ImageField(
         upload_to='photo_chef/',
         verbose_name="фото повара"
-        
     )
     facebook = models.URLField(
-        verbose_name="Facebook - повара", 
+        verbose_name="Facebook - повара",
         blank=True, null=True
     )
     youtube = models.URLField(
@@ -90,23 +92,32 @@ class Our_chef(models.Model):
         verbose_name_plural = "Повара"
 
 
+
 class News(models.Model):
     title = models.CharField(
         max_length=255,
-        verbose_name="Заголовок"
+        verbose_name="Заголовок новости"
     )
     image = models.ImageField(
-        upload_to="news/",
-        verbose_name="Фото"
+        upload_to='news_image/',
+        verbose_name="фото новости"
     )
-    time = models.DateTimeField(
+    author = models.CharField(
+        max_length=255,
+        verbose_name="Автор новости"
+    )
+    about = models.CharField(
+        max_length=255,
+        verbose_name="Краткое описание новости"
+    )
+    created = models.DateField(
         auto_now_add=True,
-        blank= True, null=True
+        verbose_name="Дата публикации"
     )
 
     def __str__(self):
         return self.title
     
     class Meta:
-        verbose_name = "Новости"
+        verbose_name = "Новость"
         verbose_name_plural = "Новости"
